@@ -1,0 +1,79 @@
+{
+  "info": {
+    "name": "Atividade 01 - Dev Web 2",
+    "_postman_id": "fdaa379b-05d3-4de2-ae0c-c18aef09cad1",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Adicionar Contrato",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/trafego",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["trafego"]
+        }
+      }
+    },
+    {
+      "name": "Buscar por id",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/trafego/7",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["trafego", "7"]
+        }
+      }
+    },
+    {
+      "name": "Atualizar trafego",
+      "request": {
+        "method": "PUT",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/trafego/mestreyoda192",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["trafego", "mestreyoda192"]
+        }
+      }
+    },
+    {
+      "name": "Listar todos",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/trafego/pf",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["trafego", "pf"]
+        }
+      }
+    },
+    {
+      "name": "Delete",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "http://localhost:8080/trafego/7",
+          "protocol": "http",
+          "host": ["localhost"],
+          "port": "8080",
+          "path": ["trafego", "7"]
+        }
+      }
+    }
+  ]
+}

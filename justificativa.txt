@@ -1,0 +1,20 @@
+DOMÍNIO: Monitoramento de Tráfego de ISP
+1. Contexto do Domínio
+O projeto simula um módulo de um ERP para um ISP. O objetivo é gerenciar contratos de internet e monitorar o tráfego de dados consumido, permitindo a diferenciação entre perfis de clientes.
+
+2. Regra de Negócio Condicional
+A lógica de classificação de consumo de dados (ALTO_CONSUMO ou NORMAL) é aplicada de forma distinta conforme o tipo de contrato, implementada através de Polimorfismo:
+Pessoa Física (PF): O limite para alto consumo é de 500 GB. Ideal para usuários residenciais.
+Pessoa Jurídica (PJ): O limite é estendido para 900 GB, refletindo a maior demanda de infraestruturas empresariais.
+
+3. Requisitos Técnicos Implementados
+Modelo e DTO: Utilização da entidade Contrato para persistência e ContratoResponseDTO para exposição na API, garantindo que dados sensíveis de autenticação (Login) e IDs internos não sejam expostos desnecessariamente.
+Validação: O Controller utiliza @Valid e anotações como @NotBlank e @Min para garantir que nenhum contrato seja criado com campos vazios ou tráfego negativo.
+Baixo Acoplamento: Uso de uma interface TrafegoService com duas implementações distintas (TrafegoPFServiceImpl e TrafegoPJServiceImpl), selecionadas no Controller via @Qualifier.
+Persistência em Memória: Implementação de um repositório utilizando Map com métodos de busca customizados por Login e não pode ID
+
+Tratamento de Erros: Uso de ResponseEntity para retornar códigos de status HTTP semânticos:
+201 Created para novas entradas;
+204 No Content para deleções;
+404 Not Found para buscas de IDs inexistentes;
+405 Method Not Allowed para operações não permitidas.
